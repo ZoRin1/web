@@ -29,23 +29,38 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 
 <style type="text/css">
 #componeyInf{
-	height:600px;
-	width:200px;
+	height:50%;
+	width:20%;
 	float:left;
 	
 }
-#main{
-	width:800px;
+#StockK{
+	width:60%;
 	float:left;
-	height:400px;
+	height:50%;
+}
+
+/*主面板样式*/
+#container { 
+        width:980px; 
+        margin:0px auto;/*主面板DIV居中*/
+}
+
+    /*中间部分面板样式*/
+#main {
+        width:100%;
+        height:400px;
+        border:1px #F00 solid;
 }
 </style>
 </head>
 <body>
   
+<div id="container">
+	<div id="header">
 <div id="navMenu">
 <ul class="menu1">
-    <li class="onelink"><a href="http://51xuediannao.com/">首页概览</a></li>
+    <li class="onelink"><a href="http://localhost:8080/web/startWin.html">首页概览</a></li>
     <li class="navthis22"><a href="http://51xuediannao.com/HTML+CSS/">资金流向</a></li>
     <li class="navthis1"><a href="http://51xuediannao.com/JS/" rel="dropmenu1">公司资料</a>
         <ul>
@@ -105,6 +120,24 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
     <li class="navthis25"><a href="http://51xuediannao.com/design/">行业分析</a></li>
     </ul>
 </div>
+	</div>
+	<div id="main">
+		<div class="panel panel-info" id="componeyInf">
+			<div class="panel-heading">
+				<h3 class="panel-title">公司简介</h3>
+			</div>
+			<div class="panel-body">		
+		</div>
+		
+</div>
+
+		<div id="StockK"></div>
+		
+		
+	</div>
+	<div id="footer"></div>
+</div>  
+
 
 <!-- 这里配置K线图的相关信息
 <script src="JS/dist/echarts.js">
@@ -377,20 +410,16 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 </script>
  -->
  
-<div class="panel panel-info" id="componeyInf">
-	<div class="panel-heading">
-		<h3 class="panel-title">公司简介</h3>
-	</div>
-	<div class="panel-body">
-					
-	</div>
-</div>
+ 
+ 
+ 
+
 
 		
-<div id="main"></div>
+
 
 <script type="text/javascript">
-	var myChart = echarts.init(document.getElementById('main'));
+	var myChart = echarts.init(document.getElementById('StockK'));
 	
 	// 数据意义：开盘(open)，收盘(close)，最低(lowest)，最高(highest)
 	var data0 = splitData([

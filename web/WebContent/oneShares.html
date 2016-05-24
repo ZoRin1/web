@@ -526,7 +526,7 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 		        }
 		    },
 		    legend: {
-		        data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30','成交量']
+		        data: ['日K', 'MA5', 'MA10', 'MA20', 'MA30']
 		    },
 		    grid: {
 		        left: '10%',
@@ -682,14 +682,6 @@ if (window.attachEvent) window.attachEvent("onload", sfHover);
 		            lineStyle: {
 		                normal: {opacity: 0.5}
 		            }
-		        },
-		        {
-		        	name: '成交量',
-		        	type: 'bar',
-		        	barWidth:4,
-		        	stack: '成交量',
-		        	data: caculateMA(30),
-		       	 	smooth:true,
 		        },
 
 		    ]

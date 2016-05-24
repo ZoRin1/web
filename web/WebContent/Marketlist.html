@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+   <link rel="stylesheet" href="CSS/bootstrap.min.css">
+   <link rel="stylesheet" href="CSS/modelCSS/jquery.dateselect.css">
+   <link rel="stylesheet" href="CSS/modelCSS/jquery.dataTables.css">
+   <link rel="stylesheet" href="http://libs.useso.com/js/font-awesome/4.2.0/css/font-awesome.min.css">
+
+   <script src="JS/jquery.min.js"></script>
+   <script src="JS/jquery.js"></script>
+   <script src="JS/jquery.dataTables.js"></script>
+   <script src="JS/bootstrap.min.js"></script>
+   <script type="text/javascript" src="JS/jquery.dateselect.js"></script>
+   <script type="text/javascript" src="JS/jquery.mousewheel.js"></script>
+   <style type="text/css">
+		   a {
+		  -moz-transition: all 0.2s ease;
+		  -o-transition: all 0.2s ease;
+		  -webkit-transition: all 0.2s ease;
+		  transition: all 0.2s ease;
+			}
+			a:hover, a:focus, a:active {
+			  color: #87b6c4;
+			  text-decoration: none;
+			  outline: none;
+			}
+   </style>
+</head>
+<body>
+	<script type="text/javascript" src="JS/less.js"></script>
+
+	<div class="container pb-lg">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="startWin.html">Home</a></li>
+            <li ><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</nav>
+<br>
+<br>
+<br>
+	  <div class="row">
+			<div class="col-md-4">
+
+			</div>
+			<div class="col-md-4">
+			    <!-- 这条线到时候换成大盘代号和大盘名称 -->
+				<HR style="border:1 dashed #987cb9" width="80%" color=#987cb9 SIZE=1>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<input type="text" name="date1" id="date1" class="form-control">
+					<span class="input-group-btn">
+						<button class="btn btn-primary btn-date" type="button"><i class="fa fa-calendar"></i></button>
+					</span>	
+				</div>
+			</div> 
+		</div>
+		
+			<div class="row">
+		    <!-- 这条分割线到时候再换 -->
+			<HR style="border:3 double #987cb9" width="80%" color=#987cb9 SIZE=3>
+		</div>
+				<div class="row">
+			<table cellpadding="0" cellspacing="0" border="0" class="display" id="Stocklist">
+				<thead>
+					<tr>
+						<th>指数代码</th>
+						<th>指数名称</th>
+						<th>开盘点位</th>
+						<th>昨收点位</th>
+						<th>当前点位</th>
+						<th>最高点位</th>
+						<th>最低点位</th>
+						<th>成交量</th>
+						<th>成交金额</th>
+						<th>更新时间</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		
+</div>
+	<script type="text/javascript">
+		$('.btn-date').on('click', function(e) {
+			e.preventDefault();
+			$.dateSelect.show({
+				element: 'input[name="date1"]'
+			});
+		});
+		
+	</script>
+	
+	
+		<script type="text/javascript">
+	$(document).ready(function(){
+	    $('#Stocklist').dataTable({
+	    	data:data,
+	    	columns:[
+	    	    {data: '指数代码'},
+	    	    {data: '指数名称'},
+	    	    {data: '开盘点位'},
+	    	    {data: '昨收点位'},
+	    	    {data: '当前点位'},
+	    	    {data: '最高点位'},
+	    	    {data: '最低点位'},
+	    	    {data: '成交量'},
+	    	    {data: '成交金额'},
+	    	    {data: '更新时间'},
+	    ],
+	    "sPaginationType": "full_numbers",
+		  "oLanguage": {
+	          "sProcessing": "正在加载中......",
+	          "sLengthMenu": "每页显示 _MENU_ 条记录",
+	          "sZeroRecords": "对不起，查询不到相关数据！",
+	          "sEmptyTable": "表中无数据存在！",
+	          "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+	          "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
+	          "sSearch": "搜索",
+	          "oPaginate": {
+	              "sFirst": "首页",
+	              "sPrevious": "上一页",
+	              "sNext": "下一页",
+	              "sLast": "末页"
+	          }
+	      } //多语言配置
+	    }); 
+	    /* Add events  这里把参数传递进去了 跳转到另外一个html页面 数据可能会存在sees里*/ 
+		$('#Stocklist tbody tr').on('click', function () {
+			var sTitle;
+			var nTds = $('td', this);
+			var sBrowser = $(nTds[1]).text();
+			var sGrade = $(nTds[4]).text();
+			sTitle =  sBrowser+' will provide a first class (A) level of CSS support.';
+			alert( sTitle )
+		 });
+	  });
+	
+	
+	
+	var data = [
+	      {
+	    	  "指数代码":  "000001",
+	    	  "指数名称":  "asdasd",
+	    	  "开盘点位":  "12.54",
+	    	  "昨收点位":  "1012.1",
+	    	  "当前点位":  "1112.1",
+	    	  "最高点位":  "122.1",
+	    	  "最低点位":  "1312.1",
+	    	  "成交量":  "14121",
+	    	  "成交金额":  "1512",
+	    	  "更新时间":  "15:00:00",
+	      },
+	      {
+	    	  "指数代码":  "000002",
+	    	  "指数名称":  "asdasd",
+	    	  "开盘点位":  "12.54",
+	    	  "昨收点位":  "1012.1",
+	    	  "当前点位":  "1112.1",
+	    	  "最高点位":  "122.1",
+	    	  "最低点位":  "1312.1",
+	    	  "成交量":  "14121",
+	    	  "成交金额":  "1512",
+	    	  "更新时间":  "15:00:00",
+	      },	      {
+	    	  "指数代码":  "000003",
+	    	  "指数名称":  "asdasd",
+	    	  "开盘点位":  "12.54",
+	    	  "昨收点位":  "1012.1",
+	    	  "当前点位":  "1112.1",
+	    	  "最高点位":  "122.1",
+	    	  "最低点位":  "1312.1",
+	    	  "成交量":  "14121",
+	    	  "成交金额":  "1512",
+	    	  "更新时间":  "15:00:00",
+	      }
+	]
+	
+	
+	</script>
+</body>
+</html>

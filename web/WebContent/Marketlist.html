@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="shortcut icon" href="picture/shorticon.png" type="image/x-icon" />
+<title>Shrewd-Investments:Marketlist</title>
    <link rel="stylesheet" href="CSS/bootstrap.min.css">
    <link rel="stylesheet" href="CSS/modelCSS/jquery.dateselect.css">
    <link rel="stylesheet" href="CSS/modelCSS/jquery.dataTables.css">
@@ -16,24 +17,24 @@
    <script type="text/javascript" src="JS/jquery.mousewheel.js"></script>
 
 </head>
-<body>
+<body background="picture/bj.jpg" style="height:100%;width:100%;background-repeat:no-repeat; ">
 	<script type="text/javascript" src="JS/less.js"></script>
 
 	<div class="container pb-lg">
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="startWin.html" style="font-size:20px">Home</a></li>
-            <li ><a href="#about" style="font-size:20px">About</a></li>
-            <li><a href="#contact" style="font-size:20px">Contact</a></li>
+            <li class="active"><a href="home.html" style="font-size:20px">Shrewd-Investments</a></li>
+            <li ><a href="Stocklist.html" style="font-size:20px">Stocklist</a></li>
+            <li><a href="Marketlist.html" style="font-size:20px">Marketlist</a></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size:20px">Dropdown <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size:20px">About<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#" >Action</a></li>
-                    <li><a href="#" >Another action</a></li>
+                    <li><a href="#" >About-One</a></li>
+                    <li><a href="#" >About-Two</a></li>
                     <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#" >Separated link</a></li>
+                    <li><a href="#" >About-Three</a></li>
+                    <li class="dropdown-header">More</li>
                 </ul>
             </li>
         </ul>
@@ -65,7 +66,7 @@
 			<HR style="border:3 double #987cb9" width="80%" color=#987cb9 SIZE=3>
 		</div>
 				<div class="row">
-			<table cellpadding="0" cellspacing="0" border="0"  class="display"  id="marketlist">
+			<table cellpadding="0" cellspacing="0" border="0"  class="display"  id="marketlist" style="opacity: 0.7;">
 				<thead>
 					<tr>
 						<th>指数代码</th>
@@ -129,7 +130,7 @@
 	      } //多语言配置
 	    }); 
 	    /* Add events  这里把参数传递进去了 跳转到另外一个html页面 数据可能会存在sees里*/ 
-		$('#Stocklist tbody tr').on('click', function () {
+		$('#marketlist tbody tr').on('click', function () {
 			var sTitle;
 			var nTds = $('td', this);
 			var sBrowser = $(nTds[0]).text();

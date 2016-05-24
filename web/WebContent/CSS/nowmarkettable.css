@@ -10,11 +10,12 @@
 	}
 
 	table {
+		opacity: 0.7;
 		overflow:hidden;
 		border:1px solid #d3d3d3;
 		background:#fefefe;
 		width:100%;
-		margin:0% auto 0;    /*   margin:5% auto 0;   5%ÊÇÉÏÏÂ5%Íâ±ß¿ò¼ä¾à  autoÊÇ×Ô¶¯×óÓÒ¶ÔÆë*/
+		margin:0% auto 0;    /*   margin:5% auto 0;   5%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5%ï¿½ï¿½ß¿ï¿½ï¿½ï¿½  autoï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½*/
 		-moz-border-radius:5px; /* FF1+ */
 		-webkit-border-radius:5px; /* Saf3-4 */
 		border-radius:5px;

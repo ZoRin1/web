@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stock_Market_Analysing_System</title>
+
+<style type="text/css">
+#fenxiButton {
+  -webkit-animation-name: greenPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  
+  position:absolute; 
+  top:514px; 
+  right:473px;
+  
+  line-height:50px;
+  height:50px;
+  width:200px;
+  color:#ffffff;
+  font-size:35px;
+  font-weight:bold;
+  font-family:SimSun;
+  border:3px solid #dcdcdc;
+  -webkit-border-top-left-radius:13px;
+  -moz-border-radius-topleft:13px;
+  border-top-left-radius:13px;
+  -webkit-border-top-right-radius:13px;
+  -moz-border-radius-topright:13px;
+  border-top-right-radius:13px;
+  -webkit-border-bottom-left-radius:13px;
+  -moz-border-radius-bottomleft:13px;
+  border-bottom-left-radius:13px;
+  -webkit-border-bottom-right-radius:13px;
+  -moz-border-radius-bottomright:13px;
+  border-bottom-right-radius:13px;
+  -moz-box-shadow: inset 0px 0px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #ffffff;
+  box-shadow: inset 0px 0px 0px 0px #ffffff;
+  text-align:center;
+  display:inline-block;
+  text-decoration:none;
+  
+}
+
+#fenxiButton:hover{
+	  height:60px;
+  	  width:220px;
+}
+
+@-webkit-keyframes greenPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+</style>
+
+</head>
+<body>
+
+	<script>
+		function Click(){
+			self.location='startWin.html';
+		}
+	</script>
+	
+
+	<div id="Layer1" style="position:absolute; width:100%; height:100%; z-index:-1">    
+	<!-- <img src="pictures/background.jpg" height="100%" width="100%"/>   -->
+	<img alt="background" src="picture/los_angeles.jpg" height="100%" width="100%">  
+	</div>   
+	
+	<!--  
+	
+	<div id="fenxiButton" style="position:absolute; top:0; right:20;">
+	<button type="button">开始分析</button>
+	</div>
+	
+	-->
+	
+	
+	<button id="fenxiButton" type="button" onclick="Click()">开始分析</button>
+
+	
+	
+	
+</body>
+</html>

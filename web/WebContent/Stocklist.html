@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+   <link rel="stylesheet" href="CSS/bootstrap.min.css">
+   <link rel="stylesheet" href="CSS/modelCSS/jquery.dateselect.css">
+   <link rel="stylesheet" href="CSS/modelCSS/jquery.dataTables.css">
+   <link rel="stylesheet" href="http://libs.useso.com/js/font-awesome/4.2.0/css/font-awesome.min.css">
+   <script src="JS/jquery.min.js"></script>
+   <script src="JS/jquery.js"></script>
+   <script src="JS/jquery.dataTables.js"></script>
+   <script src="CSS/bootstrap.min.js"></script>
+   <script type="text/javascript" src="JS/jquery.dateselect.js"></script>
+   <script type="text/javascript" src="JS/jquery.mousewheel.js"></script>
+   
+   
+
+</head>
+<body>
+	<script type="text/javascript" src="JS/less.js"></script>
+	
+	<div class="container pb-lg">
+	
+      <div class="row">
+            <!-- 这个线到时候再换 -->
+      		<HR style="border:3 double #987cb9" width="80%" color=#987cb9 SIZE=3>
+      </div>
+      
+	  <div class="row">
+			<div class="col-md-4">
+				<form class="form-inline" role="form">
+  					 <div class="form-group">
+    					  <label class="sr-only" for="name">名称</label>
+    					  <input type="text" class="form-control" id="name" 
+     					    placeholder="请输入股票代号或名称">
+  					 </div>
+  					 <button type="submit" class="btn btn-default">确定</button>
+					</form>
+			</div>
+			<div class="col-md-4">
+			    <!-- 这条线到时候换成股票代码或者股票名称 -->
+				<HR style="border:1 dashed #987cb9" width="80%" color=#987cb9 SIZE=1>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<input type="text" name="date1" id="date1" class="form-control">
+					<span class="input-group-btn">
+						<button class="btn btn-primary btn-date" type="button"><i class="fa fa-calendar"></i></button>
+					</span>	
+				</div>
+			</div> 
+		</div>
+		
+		<div class="row">
+		    <!-- 这条分割线到时候再换 -->
+			<HR style="border:3 double #987cb9" width="80%" color=#987cb9 SIZE=3>
+		</div>
+		
+		<div class="row">
+			<table cellpadding="0" cellspacing="0" border="0" class="display" id="Stocklist">
+				<thead>
+					<tr>
+						<th>日期</th>
+						<th>股票代码</th>
+						<th>股票名称</th>
+						<th>行业名称</th>
+						<th>开盘价</th>
+						<th>昨收</th>
+						<th>最高价</th>
+						<th>最低价</th>
+						<th>收盘价</th>
+						<th>后复权价</th>
+						<th>成交量</th>
+						<th>换手率</th>
+						<th>市净率</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$('.btn-date').on('click', function(e) {
+			e.preventDefault();
+			$.dateSelect.show({
+				element: 'input[name="date1"]'
+			});
+		});
+		
+
+
+	</script>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    $('#Stocklist').dataTable({
+	    	data:data,
+	    	columns:[
+	    	    {data: '日期'},
+	    	    {data: '股票代码'},
+	    	    {data: '股票名称'},
+	    	    {data: '行业名称'},
+	    	    {data: '开盘价'},
+	    	    {data: '昨收'},
+	    	    {data: '最高价'},
+	    	    {data: '最低价'},
+	    	    {data: '收盘价'},
+	    	    {data: '后复权价'},
+	    	    {data: '成交量'},
+	    	    {data: '换手率'},
+	    	    {data: '市净率'},
+	    ],
+	    "sPaginationType": "full_numbers",
+		  "oLanguage": {
+	          "sProcessing": "正在加载中......",
+	          "sLengthMenu": "每页显示 _MENU_ 条记录",
+	          "sZeroRecords": "对不起，查询不到相关数据！",
+	          "sEmptyTable": "表中无数据存在！",
+	          "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+	          "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
+	          "sSearch": "搜索",
+	          "oPaginate": {
+	              "sFirst": "首页",
+	              "sPrevious": "上一页",
+	              "sNext": "下一页",
+	              "sLast": "末页"
+	          }
+	      } //多语言配置
+	    }); 
+	    /* Add events  这里把参数传递进去了 跳转到另外一个html页面 数据可能会存在sees里*/ 
+		$('#Stocklist tbody tr').on('click', function () {
+			var sTitle;
+			var nTds = $('td', this);
+			var sBrowser = $(nTds[1]).text();
+			var sGrade = $(nTds[4]).text();
+			
+			if ( sBrowser == "60002" )
+				sTitle =  sBrowser+' will provide a first class (A) level of CSS support.';
+			else if ( sBrowser == "60001" )
+				sTitle = sBrowser+' will provide a core (C) level of CSS support.';
+			
+			alert( sTitle )
+		 });
+	  });
+	
+	
+	
+	var data = [
+	      {
+	    	  "日期":  "2015-10-17",
+	    	  "股票代码":  "60001",
+	    	  "股票名称":  "kl",
+	    	  "行业名称":  "sa",
+	    	  "开盘价":  "10",
+	    	  "昨收":  "11",
+	    	  "最高价":  "12",
+	    	  "最低价":  "13",
+	    	  "收盘价":  "14",
+	    	  "后复权价":  "15",
+	    	  "成交量":  "16",
+	    	  "换手率":  "17",
+	    	  "市净率":  "18",
+	      },
+	      {
+	    	  "日期":  "2015-10-118",
+	    	  "股票代码":  "60002",
+	    	  "股票名称":  "qq",
+	    	  "行业名称":  "ww",
+	    	  "开盘价":  "10",
+	    	  "昨收":  "11",
+	    	  "最高价":  "12",
+	    	  "最低价":  "13",
+	    	  "收盘价":  "14",
+	    	  "后复权价":  "15",
+	    	  "成交量":  "16",
+	    	  "换手率":  "17",
+	    	  "市净率":  "18",
+	      }
+	]
+	
+	
+	</script>
+	
+
+	
+</body>
+</html>
